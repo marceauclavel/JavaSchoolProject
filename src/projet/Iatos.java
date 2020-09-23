@@ -36,13 +36,13 @@ public class Iatos extends Personnel {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private float salaireFixe() {
-        return salaireFixe * (tempsDeTravail / 100.f);
+        return salaireFixe * (super.tempsDeTravail / 100.f);
     }
 
     private float salaireVariable() {
         float bonus = 0;
         if (heuresEffectuees >= service) {
-            bonus = (heuresEffectuees - service) * tauxHeuresSupplementaires;
+            bonus = (heuresEffectuees - service) * super.tauxHeuresSupplementaires;
         }
         return bonus;
     }

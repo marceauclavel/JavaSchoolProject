@@ -1,6 +1,6 @@
 package projet;
 
-public abstract class Personnel extends Personne{
+public class Personnel extends Personne {
 
     private String dateEntree;
     protected int tempsDeTravail;
@@ -61,6 +61,8 @@ public abstract class Personnel extends Personne{
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public abstract float calculSalaire();
+    public float calculSalaire(){
+        return 0;
+    };
 
 }

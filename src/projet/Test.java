@@ -7,13 +7,13 @@ public class Test {
 
     public Test() {
         try {
-            // testPersonne();
-            // testCompteBanq();
-            // testEleveDigital();
+            //testPersonne();
+            //testCompteBanq();
+            testEleveDigital();
             // testIatos();
-            // testEnseignant();
+            //testEnseignant();
             // testEnfant();
-            // testException1();
+            testException1();
             testException2();
 
         } catch (NumSecuException e) {

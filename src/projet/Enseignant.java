@@ -1,6 +1,6 @@
 package projet;
 
-public class Enseignant extends Personnel{
+public class Enseignant extends Personnel {
 
     private static float tauxHeuresSupplementairesEnseignant = 10;
     private static float primeEnseignant = 888;
@@ -82,14 +82,14 @@ public class Enseignant extends Personnel{
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private float salaireFixe() {
-        return salaireFixe * (tempsDeTravail / 100.f);
+        return salaireFixe * (super.tempsDeTravail / 100.f);
     }
 
     private int salaireVariable() {
         int bonus = 0;
         if (heuresEffectuees + dechargeHeures >= service) {
             bonus += primeEnseignant;
-            bonus += (heuresEffectuees + dechargeHeures - service) * tauxHeuresSupplementaires;
+            bonus += (heuresEffectuees + dechargeHeures - service) * super.tauxHeuresSupplementaires;
         }
         return bonus;
     }
