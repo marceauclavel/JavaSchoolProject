@@ -35,4 +35,5 @@ public abstract class Article implements Ipublicite {
     public void setSlogan(String _slogan) {
         slogan = _slogan;
     }
+
 }
