@@ -6,12 +6,6 @@ public class Habit extends Article {
         super(_nom, _prix, _slogan);
     }
 
-
-    @Override
-    public void setSlogan() {
-
-    }
-
     @Override
     public void afficheSlogan() {
 

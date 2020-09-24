@@ -7,11 +7,6 @@ public class Electromenager extends Article{
     }
 
     @Override
-    public void setSlogan() {
-
-    }
-
-    @Override
     public void afficheSlogan() {
 
     }
