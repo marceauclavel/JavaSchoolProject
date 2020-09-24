@@ -20,8 +20,7 @@ public class Test {
             System.out.println(e.getMessage());
         } catch (BanqCodeException e) {
             System.out.println(e.getMessage());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Internal problem");
         }
     }
