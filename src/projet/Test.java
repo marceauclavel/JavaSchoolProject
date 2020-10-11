@@ -7,18 +7,20 @@ public class Test {
 
     public Test() {
         try {
-            //testPersonne();
-            //testCompteBanq();
-            testEleveDigital();
+            // testPersonne();
+            // testCompteBanq();
+            // testEleveDigital();
             // testIatos();
-            //testEnseignant();
+            // testEnseignant();
             // testEnfant();
-            testException1();
+            // testException1();
             testException2();
 
         } catch (NumSecuException e) {
             System.out.println(e.getMessage());
         } catch (BanqCodeException e) {
+            System.out.println(e.getMessage());
+        } catch (BanqSoldeInsuffisant e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {
             System.out.println("Internal problem");
@@ -32,7 +34,7 @@ public class Test {
         System.out.println("Age: " + personne.calculAge());
     }
 
-    public void testCompteBanq() throws NumSecuException, BanqCodeException {
+    public void testCompteBanq() throws NumSecuException, BanqCodeException, BanqSoldeInsuffisant {
         Personne personne = new Personne("Clavel", "Marceau", "19608680665453");
         CompteBanq compte = new CompteBanq("0", personne, "0000", "1234");
         System.out.println("Solde: " + compte.getSolde());
@@ -115,7 +117,7 @@ public class Test {
         Enseignant enseignant1 = new Enseignant("Dupont", "Brigitte", "123456789", "25 Janvier 2011", 100, "PROF");
     }
 
-    public void testException2() throws NumSecuException, BanqCodeException {
+    public void testException2() throws NumSecuException, BanqCodeException, BanqSoldeInsuffisant {
         Personne personne = new Personne("Clavel", "Marceau", "19608680665453");
         CompteBanq compte = new CompteBanq("0", personne, "0000", "1234");
         System.out.println("Solde: " + compte.getSolde());

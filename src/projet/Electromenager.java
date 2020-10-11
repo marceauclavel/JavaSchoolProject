@@ -12,7 +12,14 @@ public class Electromenager extends Article implements IvendrePiece{
     }
 
     @Override
-    public void vendre(int quantite, CompteBanq compteVendeur, CompteBanq compteAcheteur) {
+    public void vendre(float quantite, CompteBanq compteVendeur, CompteBanq compteAcheteur) throws BanqSoldeInsuffisant {
+        float montant = quantite * prix;
+        try {
+            compteAcheteur.retrait(montant);
+            compteVendeur.versement(montant);
+        } catch (BanqCodeException e) {
+            e.printStackTrace();
+        }
 
     }
 

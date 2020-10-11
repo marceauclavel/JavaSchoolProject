@@ -18,7 +18,14 @@ public class Primeur extends Article implements IvendreKilo{
     }
 
     @Override
-    public void vendre(float quantite, CompteBanq compteVendeur, CompteBanq compteAcheteur) {
+    public void vendre(float quantite, CompteBanq compteVendeur, CompteBanq compteAcheteur) throws BanqSoldeInsuffisant {
+        float montant = quantite * prix;
+        try {
+            compteAcheteur.retrait(montant);
+            compteVendeur.versement(montant);
+        } catch (BanqCodeException e) {
+            e.printStackTrace();
+        }
 
     }
 

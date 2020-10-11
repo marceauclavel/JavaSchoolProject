@@ -36,4 +36,6 @@ public abstract class Article implements Ipublicite {
         slogan = _slogan;
     }
 
+    public abstract void vendre(float quantite, CompteBanq compteVendeur, CompteBanq compteAcheteur) throws BanqSoldeInsuffisant;
+
 }

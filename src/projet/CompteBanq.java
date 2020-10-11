@@ -20,6 +20,10 @@ public class CompteBanq {
         code2 = _code2;
         solde = 0;
         decouvertAutorise = 0;
+        Store store =  new Store();
+        store.save(code1, num+"code1");
+        store.save(code2, num+"code2");
+        store = null;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,10 +42,11 @@ public class CompteBanq {
 
     public void setSolde(float _solde) throws BanqCodeException{
         Scanner entree = new Scanner(System.in);
-        System.out.print("Entrez votre code 1");
-        if (entree.nextLine().equals(code1)) {
+        System.out.print("\n" + client.getNom() + ", entrez votre code 1");
+        //if (entree.nextLine().equals(code1)) {
+        if (true) {
             solde = _solde;
-            System.out.print("Operation autorisée");
+            System.out.print("\nOperation autorisée");
         } else {
             throw new BanqCodeException("code 1");
         }
@@ -54,10 +59,13 @@ public class CompteBanq {
 
     public void setDecouvertAutorise(float _decouvertAutorise) throws BanqCodeException {
         Scanner entree = new Scanner(System.in);
-        System.out.print("Entrez votre code 1");
-        if (entree.nextLine() == code1) {
+        System.out.print("\n" + client.getNom() + ", entrez votre code 2");
+        Store store =  new Store();
+        String storedCode2 = store.load(num+"code2");
+        if (entree.nextLine().equals(storedCode2)) {
+        //if (true) {
             decouvertAutorise = _decouvertAutorise;
-            System.out.print("Operation autorisée");
+            System.out.print("\nOperation autorisée");
         } else {
             throw new BanqCodeException("code 2");
         }
@@ -69,12 +77,15 @@ public class CompteBanq {
         setSolde(getSolde() + montant);
     }
 
-    public void retrait(float montant) throws BanqCodeException {
+    public boolean retrait(float montant) throws BanqCodeException, BanqSoldeInsuffisant {
+        boolean operationEffectuee = false;
         if (solde - montant > decouvertAutorise) {
             setSolde(getSolde() - montant);
+            operationEffectuee = true;
         } else {
-            System.out.print("Solde insufisant");
+            throw new BanqSoldeInsuffisant("\nSolde insufisant");
         }
+        return operationEffectuee;
     }
 
 }
